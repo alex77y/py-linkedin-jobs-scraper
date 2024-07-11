@@ -1,0 +1,3 @@
+Chromium
+Chromedriver
+linkedin-jobs-scraper
