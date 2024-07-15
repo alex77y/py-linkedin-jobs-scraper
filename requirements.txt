@@ -1,3 +1,6 @@
 selenium>=4.16.0
 wheel
 pytest
+Chromium
+Chromedriver
+linkedin-jobs-scraper
