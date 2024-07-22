@@ -447,6 +447,8 @@ class AuthenticatedStrategy(Strategy):
                         info(tag, 'Skipped because promoted')
                         job_index += 1
                         metrics.skipped += 1
+                        if metrics.skipped >=5:
+                            return
 
                         # Try fetching more jobs
                         if metrics.processed < query.options.limit and job_index == job_tot < pagination_size:

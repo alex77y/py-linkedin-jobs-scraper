@@ -97,8 +97,8 @@ class LinkedinScraper:
         if len(query.query) > 0:
             params['keywords'] = query.query
 
-        if len(location) > 0:
-            params['location'] = location
+        # if len(location) > 0:
+        #     params['location'] = location
 
         if query.options.filters is not None:
             if query.options.filters.company_jobs_url is not None:
@@ -106,7 +106,7 @@ class LinkedinScraper:
                 if 'f_C' in _params:
                     params['f_C'] = _params['f_C']
                     debug(tag, 'Applied company filter', query.options.filters.company_jobs_url)
-
+            params['geoId'] = '92000000'
             if query.options.filters.relevance is not None:
                 params['sortBy'] = query.options.filters.relevance.value
                 debug(tag, 'Applied relevance filter', query.options.filters.relevance)
@@ -142,8 +142,8 @@ class LinkedinScraper:
 
             # Start offset
             params['start'] = '0'
-
         parsed = parsed._replace(query=urlencode(params))
+        print(parsed.geturl())
         return parsed.geturl()
 
     def __run(self, query: Query) -> None:
